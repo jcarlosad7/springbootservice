@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import tech.cognity.apipedidos.converter.UsuarioConverter;
+import tech.cognity.apipedidos.dto.LoginRequestDTO;
+import tech.cognity.apipedidos.dto.LoginResponseDTO;
 import tech.cognity.apipedidos.dto.UsuarioRequestDTO;
 import tech.cognity.apipedidos.dto.UsuarioResponseDTO;
 import tech.cognity.apipedidos.entity.Usuario;
@@ -81,5 +83,13 @@ public class UsuarioController {
 		service.delete(id);
 		return new WrapperResponse(true,"success",null).createResponse(HttpStatus.OK);
 	}
+	
+	@PostMapping("login")
+	public ResponseEntity<WrapperResponse<LoginResponseDTO>>login(@RequestBody LoginRequestDTO request){
+		LoginResponseDTO response=service.login(request);
+		return new WrapperResponse<>(true,"success",response).createResponse(HttpStatus.OK);
+		
+	}
+	
 	
 }

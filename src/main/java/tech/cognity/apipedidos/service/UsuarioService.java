@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.data.domain.Pageable;
 
+import tech.cognity.apipedidos.dto.LoginRequestDTO;
+import tech.cognity.apipedidos.dto.LoginResponseDTO;
 import tech.cognity.apipedidos.entity.Usuario;
 
 public interface UsuarioService {
@@ -13,4 +15,5 @@ public interface UsuarioService {
 	public Usuario update(Usuario usuario);
 	public Usuario save(Usuario usuario);
 	public void delete(int id);
+	public LoginResponseDTO login(LoginRequestDTO request);
 }
